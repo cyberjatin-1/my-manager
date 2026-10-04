@@ -1673,3 +1673,304 @@ a {
   }
 
 }
+
+/* =====================================================
+   MY MANAGER - PREMIUM UI UPDATE
+===================================================== */
+
+
+/* ================= LOGO ================= */
+
+.brand img {
+  width: 54px;
+  height: 54px;
+  object-fit: contain;
+  background: #ffffff;
+  padding: 4px;
+  border-radius: 14px;
+  box-shadow:
+    0 4px 16px rgba(0, 0, 0, 0.16);
+}
+
+.sidebar-brand img {
+  width: 46px;
+  height: 46px;
+  object-fit: contain;
+  border-radius: 12px;
+}
+
+
+/* ================= MENU BUTTON ================= */
+
+.menu-btn {
+  display: grid;
+  place-items: center;
+  font-size: 21px;
+  transition:
+    transform .2s ease,
+    background .2s ease;
+}
+
+.menu-btn:hover {
+  transform: scale(1.06);
+  background: rgba(255,255,255,.22);
+}
+
+
+/* ================= PLAN CARDS ================= */
+
+.plan-card {
+  border: 1px solid rgba(255,255,255,.16);
+  box-shadow:
+    0 10px 25px rgba(20,40,80,.12);
+}
+
+.plan-card:hover {
+  transform: translateY(-6px);
+  box-shadow:
+    0 16px 30px rgba(20,40,80,.20);
+}
+
+
+/* ================= ELITE ================= */
+
+.plan-card.elite {
+  background:
+    linear-gradient(
+      135deg,
+      #1b2438,
+      #344b73
+    );
+}
+
+.plan-card.elite .plan-icon {
+  font-size: 30px;
+  text-shadow:
+    0 0 12px rgba(255,255,255,.45);
+}
+
+
+/* ================= BUY BUTTON ================= */
+
+.primary-btn {
+  background:
+    linear-gradient(
+      135deg,
+      #0757c8,
+      #16b8dc
+    ) !important;
+
+  box-shadow:
+    0 8px 20px rgba(7,87,200,.22);
+
+  transition:
+    transform .2s ease,
+    box-shadow .2s ease;
+}
+
+.primary-btn:hover {
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 12px 25px rgba(7,87,200,.30);
+}
+
+
+/* ================= CONTACT BUTTON ================= */
+
+.secondary-btn {
+  transition:
+    transform .2s ease,
+    background .2s ease;
+}
+
+.secondary-btn:hover {
+  transform: translateY(-2px);
+}
+
+
+/* ================= DETAIL HERO ================= */
+
+.detail-hero {
+  background:
+    linear-gradient(
+      135deg,
+      #06285e,
+      #0871d9,
+      #15b8d9
+    );
+  box-shadow:
+    0 15px 35px rgba(7,87,200,.18);
+}
+
+
+/* ================= SIDEBAR ================= */
+
+.sidebar {
+  box-shadow:
+    8px 0 25px rgba(20,40,80,.04);
+}
+
+
+/* =====================================================
+   MOBILE MENU
+===================================================== */
+
+@media (max-width: 760px) {
+
+  .sidebar {
+
+    display: block;
+
+    position: fixed;
+
+    left: 0;
+    top: 66px;
+
+    width: min(290px, 82vw);
+
+    height:
+      calc(100vh - 66px);
+
+    z-index: 999;
+
+    transform:
+      translateX(-110%);
+
+    transition:
+      transform .28s ease;
+
+    box-shadow:
+      10px 0 30px rgba(0,0,0,.18);
+
+    overflow-y: auto;
+
+  }
+
+
+  .sidebar.mobile-open {
+
+    transform:
+      translateX(0);
+
+  }
+
+
+  .sidebar-brand {
+
+    padding-top: 18px;
+
+  }
+
+
+  .side-nav {
+
+    margin-top: 18px;
+
+  }
+
+
+  .side-link {
+
+    padding:
+      14px 15px;
+
+    font-size: 14px;
+
+  }
+
+
+  .menu-btn {
+
+    z-index: 1001;
+
+  }
+
+}
+
+
+/* ================= MOBILE LOGO ================= */
+
+@media (max-width: 760px) {
+
+  .brand img {
+
+    width: 43px;
+    height: 43px;
+
+    border-radius: 12px;
+
+  }
+
+}
+
+
+/* ================= AESTHETIC CARDS ================= */
+
+.welcome-card,
+.detail-card,
+.about-card,
+.contact-card,
+.empty-card,
+.feature-strip,
+.membership-row {
+
+  box-shadow:
+    0 10px 30px
+    rgba(15, 45, 90, .08);
+
+}
+
+
+/* ================= SMOOTH BUTTONS ================= */
+
+button,
+a {
+
+  -webkit-tap-highlight-color:
+    transparent;
+
+}
+
+
+/* ================= WHATSAPP BANNER ================= */
+
+.info-banner {
+
+  box-shadow:
+    0 12px 30px
+    rgba(7,50,110,.16);
+
+}
+
+
+/* ================= COMING SOON ================= */
+
+.membership-row strong {
+
+  color:
+    var(--blue);
+
+}
+
+
+/* ================= BETTER MOBILE CARDS ================= */
+
+@media (max-width: 760px) {
+
+  .plan-card {
+
+    box-shadow:
+      0 7px 18px
+      rgba(20,40,80,.13);
+
+  }
+
+  .plan-card:hover {
+
+    transform:
+      translateY(-3px);
+
+  }
+
+}
