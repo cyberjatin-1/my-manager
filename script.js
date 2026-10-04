@@ -1,6 +1,6 @@
 /* =====================================================
    MY MANAGER
-   Updated Main JavaScript
+   Final Main JavaScript
 ===================================================== */
 
 
@@ -48,6 +48,7 @@ const planData = {
     ]
   },
 
+
   shaurya: {
     name: "Shaurya",
     forText: "FOR DEFENCE PERSONNEL",
@@ -69,6 +70,7 @@ const planData = {
     ]
   },
 
+
   professional: {
     name: "Professional",
     forText: "FOR WORKING PROFESSIONALS",
@@ -84,6 +86,7 @@ const planData = {
       "Priority Helpline"
     ]
   },
+
 
   aarogya: {
     name: "Aarogya",
@@ -101,6 +104,7 @@ const planData = {
     ]
   },
 
+
   global: {
     name: "Global",
     forText: "FOR NRI",
@@ -116,6 +120,7 @@ const planData = {
       "Dedicated Assistance"
     ]
   },
+
 
   samaj: {
     name: "Samaj Gaurav",
@@ -133,6 +138,7 @@ const planData = {
     ]
   },
 
+
   women: {
     name: "Women",
     forText: "FOR WOMEN",
@@ -148,6 +154,7 @@ const planData = {
       "Priority Helpline"
     ]
   },
+
 
   student: {
     name: "Student",
@@ -169,8 +176,7 @@ const planData = {
 
 /* ================= ELEMENTS ================= */
 
-const pages =
-  document.querySelectorAll(".page");
+const pages = document.querySelectorAll(".page");
 
 const navControls =
   document.querySelectorAll("[data-page]");
@@ -183,18 +189,6 @@ const sidebar =
 
 const menuBtn =
   document.getElementById("menuBtn");
-
-
-/* ================= LOGO ================= */
-
-document
-  .querySelectorAll('img[src*="my-manager-logo"]')
-  .forEach(img => {
-
-    img.src = "my-manager-logo.png";
-    img.alt = "My Manager Logo";
-
-  });
 
 
 /* ================= SHOW PAGE ================= */
@@ -229,7 +223,7 @@ function showPage(pageName) {
   });
 
 
-  /* Close sidebar on mobile */
+  /* Close mobile sidebar */
 
   if (sidebar) {
 
@@ -246,8 +240,7 @@ function showPage(pageName) {
 
 function openPlan(planKey) {
 
-  const plan =
-    planData[planKey];
+  const plan = planData[planKey];
 
   if (!plan) {
     return;
@@ -276,7 +269,7 @@ function openPlan(planKey) {
     document.getElementById("serviceGrid");
 
 
-  /* Details */
+  /* ================= DETAILS ================= */
 
   if (detailTitle) {
     detailTitle.textContent = plan.name;
@@ -300,12 +293,11 @@ function openPlan(planKey) {
   }
 
 
-  /* Hero theme */
+  /* ================= HERO THEME ================= */
 
   if (detailHero) {
 
-    detailHero.className =
-      "detail-hero";
+    detailHero.className = "detail-hero";
 
     detailHero.classList.add(
       `${plan.theme}-theme`
@@ -314,7 +306,7 @@ function openPlan(planKey) {
   }
 
 
-  /* Services */
+  /* ================= SERVICES ================= */
 
   if (serviceGrid) {
 
@@ -335,12 +327,11 @@ function openPlan(planKey) {
   }
 
 
-  /* WhatsApp */
+  /* ================= WHATSAPP ================= */
 
-  const message =
-    encodeURIComponent(
+  const message = encodeURIComponent(
 
-      `Hello Jatin Mishra,
+`Hello Jatin Mishra,
 
 I am interested in the ${plan.name} Plan (${plan.price}) of My Manager.
 
@@ -348,7 +339,7 @@ Please share the membership procedure, payment details and next steps.
 
 Thank you.`
 
-    );
+  );
 
 
   const buyPlanBtn =
@@ -361,7 +352,9 @@ Thank you.`
       `https://wa.me/919649950866?text=${message}`;
 
     buyPlanBtn.textContent =
-      "Buy Plan";
+      plan.price === "Coming Soon"
+        ? "Enquire on WhatsApp"
+        : "Buy Plan";
 
   }
 
@@ -377,11 +370,16 @@ navControls.forEach(control => {
 
   control.addEventListener(
     "click",
-    () => {
+    event => {
 
-      showPage(
-        control.dataset.page
-      );
+      event.preventDefault();
+
+      const pageName =
+        control.dataset.page;
+
+      if (pageName) {
+        showPage(pageName);
+      }
 
     }
   );
@@ -397,9 +395,12 @@ planControls.forEach(control => {
     "click",
     () => {
 
-      openPlan(
-        control.dataset.plan
-      );
+      const planKey =
+        control.dataset.plan;
+
+      if (planKey) {
+        openPlan(planKey);
+      }
 
     }
   );
@@ -407,7 +408,7 @@ planControls.forEach(control => {
 });
 
 
-/* ================= MENU ================= */
+/* ================= MOBILE MENU ================= */
 
 if (menuBtn && sidebar) {
 
@@ -449,7 +450,7 @@ document
   });
 
 
-/* ================= BUY BUTTON DEFAULT ================= */
+/* ================= DEFAULT BUY BUTTON ================= */
 
 const defaultBuy =
   document.getElementById("buyPlanBtn");
@@ -462,104 +463,13 @@ if (defaultBuy) {
 }
 
 
-/* ================= CONTACT TEXT ================= */
+/* =====================================================
+   INITIAL STATE
+===================================================== */
 
-document
-  .querySelectorAll("*")
-  .forEach(element => {
-
-    if (
-      element.children.length === 0 &&
-      element.textContent.includes(
-        "Bhanu Prakash Mishra"
-      )
-    ) {
-
-      element.textContent =
-        element.textContent.replace(
-          /Bhanu Prakash Mishra/g,
-          "Jatin Mishra"
-        );
-
-    }
-
-  });
+showPage("home");
 
 
-/* ================= OLD NUMBER CLEANUP ================= */
-
-document
-  .querySelectorAll("a")
-  .forEach(link => {
-
-    if (
-      link.href.includes(
-        "8875542008"
-      )
-    ) {
-
-      link.href =
-        link.href.replace(
-          "8875542008",
-          "9649950866"
-        );
-
-    }
-
-    if (
-      link.href.includes(
-        "9829244121"
-      )
-    ) {
-
-      link.href =
-        link.href.replace(
-          "9829244121",
-          "9649950866"
-        );
-
-    }
-
-    if (
-      link.textContent.includes(
-        "88755 42008"
-      )
-    ) {
-
-      link.textContent =
-        link.textContent.replace(
-          "88755 42008",
-          "96499 50866"
-        );
-
-    }
-
-    if (
-      link.textContent.includes(
-        "98292 44121"
-      )
-    ) {
-
-      link.textContent =
-        link.textContent.replace(
-          "98292 44121",
-          "96499 50866"
-        );
-
-    }
-
-    if (
-      link.textContent.includes(
-        "Email Support"
-      )
-    ) {
-
-      link.textContent =
-        link.textContent.replace(
-          "Email Support",
-          "Contact Us"
-        );
-
-    }
-
-  });
+console.log(
+  "My Manager website loaded successfully."
+);
